@@ -38,6 +38,9 @@ bind-key -T copy-mode-vi 'C-l' select-pane -R
 bind-key \\ split-window -h -c "#{pane_current_path}"
 bind-key - split-window -v -c "#{pane_current_path}"
 
+# breaks plane into window
+bind-key b break-pane -d
+
 # Fine adjustment (1 or 2 cursor cells per bump)
 bind -n S-Left resize-pane -L 2
 bind -n S-Right resize-pane -R 2
@@ -63,3 +66,9 @@ bind-key -T copy-mode-vi y send -X copy-pipe "xclip -selection clipboard"
 # Update default binding of `Enter` to also use copy-pipe
 unbind -T copy-mode-vi Enter
 bind-key -T copy-mode-vi Enter send -X copy-pipe "xclip -selection clipboard"
+
+# kills current session and switch
+bind-key K run-shell 'tmux switch-client -n \; kill-session -t "$(tmux display-message -p "#S")" || tmux kill-session'
+
+# call htop in its own window
+bind-key h split-window -h "htop"

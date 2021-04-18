@@ -3,16 +3,21 @@ syntax on
 
 set relativenumber
 
-set ts=4
 set showmatch
 set cursorline
-set autoindent
-set expandtab
+set tabstop=4             " Tab size of 4 spaces
+set softtabstop=4         " On insert use 4 spaces for tab
+set shiftwidth=4
+set expandtab             " Use apropiate number of spaces
+set noswapfile            " Do not leve any backup files
+let &t_SI = "\e[6 q"      " Make cursor a line in insert
+let &t_EI = "\e[2 q"      " Make cursor a line in insert
 let python_highlight_all = 1
 
 set noshowmode
 set bg=dark
 set laststatus=2
+
 let g:gruvbox_italic=1
 let g:lightline = {
       \ 'colorscheme': 'jellybeans',
@@ -39,6 +44,19 @@ let g:lightline = {
       \   'gitbranch': 'FugitiveHead'
       \ },
       \ }
+let g:ale_python_executable='python3'
+let g:ale_fixers = {
+			\   'javascript': ['prettier'],
+			\   'css': ['prettier'],
+			\   'scss': ['prettier'],
+			\   'html': ['prettier'],
+			\}
+let g:ale_linters = {
+			\   'python': ['flake8', 'pylint'],
+			\   'javascript': ['eslint'],
+			\   'vue': ['eslint']
+			\}
+let g:ale_fix_on_save = 1
 
 autocmd vimenter * ++nested colorscheme gruvbox
 " automatically rebalance windows on vim resize
