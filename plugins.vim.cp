@@ -19,5 +19,8 @@ Plug 'maximbaz/lightline-ale'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'christoomey/vim-tmux-runner'
+Plug 'jmcantrell/vim-virtualenv'
+Plug 'jiangmiao/auto-pairs'
+Plug 'alvan/vim-closetag'
 
 call plug#end()
