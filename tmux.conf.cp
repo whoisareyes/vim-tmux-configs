@@ -41,17 +41,11 @@ bind-key - split-window -v -c "#{pane_current_path}"
 # breaks plane into window
 bind-key b break-pane -d
 
-# Fine adjustment (1 or 2 cursor cells per bump)
-bind -n S-Left resize-pane -L 2
-bind -n S-Right resize-pane -R 2
-bind -n S-Down resize-pane -D 1
-bind -n S-Up resize-pane -U 1
-
-# Coarse adjustment (5 or 10 cursor cells per bump)
-bind -n C-Left resize-pane -L 10
-bind -n C-Right resize-pane -R 10
-bind -n C-Down resize-pane -D 5
-bind -n C-Up resize-pane -U 5
+# Fine adjustment (10 or 5 cursor cells per bump)
+bind -n S-Left resize-pane -L 10
+bind -n S-Right resize-pane -R 10
+bind -n S-Down resize-pane -D 5
+bind -n S-Up resize-pane -U 5
 
 # choose session tree
 bind-key C-j choose-tree
